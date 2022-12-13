@@ -5,6 +5,7 @@ from test_charge_rate_check import change_rate_check
 from test_soc_check import soc_check
 from print_test_case_result import *
 from BMS_Class import *
+from print_info import *
 
 class Test_BMS:
 
@@ -28,5 +29,5 @@ def battery_is_ok(test_case):
     charge_rate_result = change_rate_check(threshold_dict_data, test_case)
     result = temp_result and soc_result and charge_rate_result
     # Printing Out of range values
-    print_info(test_case, temp_result, soc_result, charge_rate_result)
+    print_info_all(test_case, temp_result, soc_result, charge_rate_result)
     return result
