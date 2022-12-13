@@ -22,16 +22,11 @@ class Test_BMS:
 
 def battery_is_ok(test_case):
     test_obj = Test_BMS()
-    threshold_dict_data = test_obj.battery_type_threshold(test_case["Battery_Type"])
-    temp_result = temp_check(threshold_dict_data, test_case)
-    soc_result = soc_check(threshold_dict_data, test_case)
-    charge_rate_result = change_rate_check(threshold_dict_data, test_case)
-    result = temp_result and soc_result and charge_rate_result
+    th_data = test_obj.battery_type_threshold(test_case["Battery_Type"])
     # Printing Out of range values
-    if not result:
+    if not (temp_check(th_data, test_case) and soc_check(th_data, test_case) and change_rate_check(th_data, test_case)):
         print_test_case(test_case)
-        print_out_of_range_temp(temp_result)
-        print_out_of_range_soc(soc_result)
-        print_out_of_range_charge(charge_rate_result)
-    return result
-
+        print_out_of_range_temp(temp_check(th_data, test_case))
+        print_out_of_range_soc(soc_check(th_data, test_case))
+        print_out_of_range_charge(change_rate_check(th_data, test_case))
+    return temp_check(th_data, test_case) and soc_check(th_data, test_case) and change_rate_check(th_data, test_case)
