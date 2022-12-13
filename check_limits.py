@@ -1,18 +1,21 @@
+from Test_BMS_Class import *
 
-def battery_is_ok(temperature, soc, charge_rate):
-  if temperature < 0 or temperature > 45:
-    print('Temperature is out of range!')
-    return False
-  elif soc < 20 or soc > 80:
-    print('State of Charge is out of range!')
-    return False
-  elif charge_rate > 0.8:
-    print('Charge rate is out of range!')
-    return False
+TEST_CASE_1 = {
+                "Battery_Type" : "Li-ion",
+                "Temp_Type" : "Fahrenheit",
+                "Temperature" : 68,
+                "SOC" : 70,
+                "Charge_rate" : 0.7
+            }
 
-  return True
-
+TEST_CASE_2 = {  
+                "Battery_Type" : "Li-ion",
+                "Temp_Type" : "Celcius",
+                "Temperature" : 50,
+                "SOC" : 85,
+                "Charge_rate" : 0
+            }
 
 if __name__ == '__main__':
-  assert(battery_is_ok(25, 70, 0.7) is True)
-  assert(battery_is_ok(50, 85, 0) is False)
+  assert(battery_is_ok(TEST_CASE_1) is True)
+  assert(battery_is_ok(TEST_CASE_2) is False)
