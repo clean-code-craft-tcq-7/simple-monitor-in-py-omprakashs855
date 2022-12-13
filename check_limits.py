@@ -2,8 +2,8 @@ from Test_BMS_Class import *
 
 TEST_CASE_1 = {
                 "Battery_Type" : "Li-ion",
-                "Temp_Type" : "Fahrenheit",
-                "Temperature" : 68,
+                "Temp_Type" : "Celcius",
+                "Temperature" : 25,
                 "SOC" : 70,
                 "Charge_rate" : 0.7
             }
