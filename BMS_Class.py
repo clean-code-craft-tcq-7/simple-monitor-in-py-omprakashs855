@@ -30,6 +30,10 @@ class BMS:
         # Convert Fahrenheit to Celcius
         C_temp = (F_temp - 32)*(5/9)
         return C_temp
-    
 
-    
+    def check_temp_type(self, temp_type, temp):
+        if temp_type == "Celcius":
+            conv_result = self.celcius_to_Fahr(temp)
+        elif temp_type == "Fahrenheit":
+            conv_result =  self.Fahr_to_celcius(temp)
+        return conv_result   
