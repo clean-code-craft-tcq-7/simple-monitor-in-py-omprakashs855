@@ -1,0 +1,84 @@
+{
+    "TEST_CASE": [
+        {   "Test_Case_Index": 1,
+            "Battery_Type": "Li-ion",
+            "Temp_Type": "Celcius",
+            "Temperature": 25,
+            "SOC": 70,
+            "Charge_rate": 0.7,
+            "assert_check": true
+        },
+        {
+            "Test_Case_Index": 2,
+            "Battery_Type": "Li-ion",
+            "Temp_Type": "Celcius",
+            "Temperature": 50,
+            "SOC": 85,
+            "Charge_rate": 0,
+            "assert_check": false
+        },
+        {
+            "Test_Case_Index": 3,
+            "Battery_Type": "Li-ion",
+            "Temp_Type": "Fahrenheit",
+            "Temperature": 100,
+            "SOC": 79,
+            "Charge_rate": 0.6,
+            "assert_check": true
+        },
+        {
+            "Test_Case_Index": 4,
+            "Battery_Type": "Li-ion",
+            "Temp_Type": "Celcius",
+            "Temperature": 44,
+            "SOC": 22,
+            "Charge_rate": 0.79,
+            "assert_check": true
+        },
+        {
+            "Test_Case_Index": 5,
+            "Battery_Type": "Li-ion",
+            "Temp_Type": "Celcius",
+            "Temperature": 35,
+            "SOC": 85,
+            "Charge_rate": 1,
+            "assert_check": false
+        },
+        {
+            "Test_Case_Index": 6,
+            "Battery_Type": "Li-ion",
+            "Temp_Type": "Celcius",
+            "Temperature": 100,
+            "SOC": 50,
+            "Charge_rate": 0.5,
+            "assert_check": false
+        },
+        {
+            "Test_Case_Index": 7,
+            "Battery_Type": "Li-ion",
+            "Temp_Type": "Fahrenheit",
+            "Temperature": 34,
+            "SOC": 22,
+            "Charge_rate": 0.2,
+            "assert_check": true
+        },
+        {
+            "Test_Case_Index": 8,
+            "Battery_Type": "Li-ion",
+            "Temp_Type": "Celcius",
+            "Temperature": 0,
+            "SOC": 20,
+            "Charge_rate": 0,
+            "assert_check": true
+        },
+        {
+            "Test_Case_Index": 9,
+            "Battery_Type": "Li-ion",
+            "Temp_Type": "Fahrenheit",
+            "Temperature": 200,
+            "SOC": 85,
+            "Charge_rate": 0,
+            "assert_check": false
+        }
+    ]
+}
