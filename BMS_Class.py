@@ -22,6 +22,12 @@ class BMS:
         ]
         return battery_bms_info
     
+    def temp_type_check(self, threshold_dict_data, test_case):
+        temperature = test_case["Temperature"]
+        if threshold_dict_data["Temp_Type"] != test_case["Temp_Type"]:
+            temperature = self.temp_type(test_case["Temp_Type"], test_case["Temperature"])
+        return temperature
+
     def temp_type(self, temp_type, temp):
         if temp_type == "Celcius":
             conv_result =  self.celcius_to_Fahr(temp)
@@ -39,13 +45,18 @@ class BMS:
         C_temp = (F_temp - 32)*(5/9)
         return C_temp 
 
-    def tolerance_check_min(self, tolerance_min_val, val):
+    def zero_val_check(self, val):
+        if val == 0:
+            val = 1
+        return val
+
+    def tolerance_check_min(self, tolerance_min_val, tolerance_max_val, val):
         present_check = True
         # Checking 5% min of the val
         min_val_V1 = tolerance_min_val
-        min_val_V2 = tolerance_min_val + (0.05*tolerance_min_val)
+        min_val_V2 = tolerance_min_val + (0.05 * self.zero_val_check(tolerance_max_val))
         if val >= min_val_V1 and val<= min_val_V2:
-            print("MIN : {}, MAX : {}, CURRENT_VAL : {}".format(min_val_V1, min_val_V2, val))
+            print("MIN : {}, MAX : {:.2f}, CURRENT_VAL : {}".format(min_val_V1, min_val_V2, val))
             present_check = False
         return present_check
 
@@ -53,7 +64,7 @@ class BMS:
         present_check = True
         # Checking 5% max of the val
         max_val_V1 = tolerance_max_val
-        max_val_V2 = tolerance_max_val - (0.05*tolerance_max_val)
+        max_val_V2 = tolerance_max_val - (0.05 * self.zero_val_check(tolerance_max_val))
         if val >= max_val_V1 and val<= max_val_V2:
             print("MIN : {}, MAX : {}, CURRENT_VAL : {}".format(max_val_V1, max_val_V2, val))
             present_check = False
