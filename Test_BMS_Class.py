@@ -14,18 +14,19 @@ class Test_BMS:
             check_same = True
         return check_same
 
-    def battery_type_threshold(self, battery_type):
-        bms_obj = BMS()
+    def battery_type_threshold(self, battery_type, bms_obj):
         for battery in bms_obj.battery_type_mapping():
             if battery["Battery_Type"] == battery_type:
                 return battery
 
 def battery_is_ok(test_case):
+    bms_obj = BMS()
     test_obj = Test_BMS()
-    threshold_dict_data = test_obj.battery_type_threshold(test_case["Battery_Type"])
-    temp_result = temp_check(threshold_dict_data, test_case)
-    soc_result = soc_check(threshold_dict_data, test_case)
-    charge_rate_result = change_rate_check(threshold_dict_data, test_case)
+    threshold_dict_data = test_obj.battery_type_threshold(test_case["Battery_Type"], bms_obj)
+    # adding extension 1 in these three check
+    temp_result = temp_check(threshold_dict_data, test_case, bms_obj)
+    soc_result = soc_check(threshold_dict_data, test_case, bms_obj)
+    charge_rate_result = change_rate_check(threshold_dict_data, test_case, bms_obj)
     result = bool(temp_result * soc_result * charge_rate_result)
     # Printing Out of range values
     if not result:

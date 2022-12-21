@@ -11,7 +11,7 @@ class BMS:
                 # Charging
                 "Charge_Temp_Min" : 0,
                 "Charge_Temp_Max" : 45,
-                # Discharging
+                # Discharging, not used yet
                 "Discharge_Temp_Min" : -20,
                 "Discharge_Temp_Max" : 65,
                 "SOC_min" : 20,
@@ -30,3 +30,20 @@ class BMS:
         # Convert Fahrenheit to Celcius
         C_temp = (F_temp - 32)*(5/9)
         return C_temp 
+
+    def tolerance_check_min(self, tolerance_min_val, val):
+        present_check = False
+        # Checking 5% min of the val
+        min_val_V1 = tolerance_min_val
+        min_val_V2 = tolerance_min_val + (0.05*tolerance_min_val)
+        if val >= min_val_V1 and val<= min_val_V2:
+            present_check = True
+        return present_check
+
+    def tolerance_check_max(self, tolerance_max_val, val):
+        # Checking 5% max of the val
+        max_val_V1 = tolerance_max_val
+        max_val_V2 = tolerance_max_val - (0.05*tolerance_max_val)
+        if val >= max_val_V1 and val<= max_val_V2:
+            present_check = True
+        return present_check
