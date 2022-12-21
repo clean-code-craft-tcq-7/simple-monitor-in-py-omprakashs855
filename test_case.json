@@ -1,6 +1,6 @@
 {
     "TEST_CASE": [
-        {
+        {   "Test_Case_Index": 1,
             "Battery_Type": "Li-ion",
             "Temp_Type": "Celcius",
             "Temperature": 25,
@@ -9,6 +9,7 @@
             "assert_check": true
         },
         {
+            "Test_Case_Index": 2,
             "Battery_Type": "Li-ion",
             "Temp_Type": "Celcius",
             "Temperature": 50,

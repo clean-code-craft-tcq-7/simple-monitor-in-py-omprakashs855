@@ -22,6 +22,9 @@ class Test_BMS:
 def battery_is_ok(test_case):
     bms_obj = BMS()
     test_obj = Test_BMS()
+    print("~"*len("Test Case : {}".format(test_case["Test_Case_Index"])))
+    print("Test Case : {}".format(test_case["Test_Case_Index"]))
+    print("~"*len("Test Case : {}".format(test_case["Test_Case_Index"])))
     threshold_dict_data = test_obj.battery_type_threshold(test_case["Battery_Type"], bms_obj)
     # adding extension 1 in these three check
     temp_result = temp_check(threshold_dict_data, test_case, bms_obj)

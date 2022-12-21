@@ -9,6 +9,6 @@ def temp_check(threshold_dict_data, test_case, bms_obj):
         check_present = 0
     else:
         print_tolerence_min(bms_obj.tolerance_check_min(threshold_dict_data["Charge_Temp_Min"], temperature), "min temperature")
-        print_tolerence_max(bms_obj.tolerance_check_min(threshold_dict_data["Charge_Temp_Max"], temperature), "max temperature")
+        print_tolerence_max(bms_obj.tolerance_check_max(threshold_dict_data["Charge_Temp_Max"], temperature), "max temperature")
     return check_present
 
