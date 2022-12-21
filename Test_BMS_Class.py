@@ -33,7 +33,6 @@ def battery_is_ok(test_case):
     result = bool(temp_result * soc_result * charge_rate_result)
     # Printing Out of range values
     if not result:
-        print_test_case(test_case)
         print_out_of_range_temp(bool(temp_result))
         print_out_of_range_soc(bool(soc_result))
         print_out_of_range_charge(bool(charge_rate_result))

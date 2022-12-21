@@ -12,8 +12,8 @@ class BMS:
                 "Charge_Temp_Min" : 0,
                 "Charge_Temp_Max" : 45,
                 # Discharging, not used yet
-                # "Discharge_Temp_Min" : -20,
-                # "Discharge_Temp_Max" : 65,
+                "Discharge_Temp_Min" : -20,
+                "Discharge_Temp_Max" : 65,
                 "SOC_min" : 20,
                 "SOC_max" : 80,
                 "Charge_rate_max": 0.8,
@@ -22,6 +22,13 @@ class BMS:
         ]
         return battery_bms_info
     
+    def temp_type(self, temp_type, temp):
+        if temp_type == "Celcius":
+            conv_result =  self.celcius_to_Fahr(temp)
+        elif temp_type == "Fahrenheit":
+            conv_result =  self.Fahr_to_celcius(temp)
+        return conv_result
+
     def celcius_to_Fahr(self, C_temp):
         # Convert Celcius to Fahrenheit
         F_temp = (C_temp*(9/5)) + 32

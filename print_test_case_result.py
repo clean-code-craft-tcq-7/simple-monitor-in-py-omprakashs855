@@ -1,12 +1,4 @@
 
-def print_test_case(test_case):
-    print("---------------------------------------------------")
-    print("Battery_Type : {}".format(test_case["Battery_Type"]))
-    print("Temperature : {}".format(test_case["Temperature"]))
-    print("SOC : {}".format(test_case["SOC"]))
-    print("Charge_rate : {}".format(test_case["Charge_rate"]))
-    print("---------------------------------------------------")
-
 def print_out_of_range_temp(check_flag):
     if not check_flag:
         print('Temperature is out of range!')
