@@ -65,7 +65,7 @@ class BMS:
         # Checking 5% max of the val
         max_val_V1 = tolerance_max_val
         max_val_V2 = tolerance_max_val - (0.05 * self.zero_val_check(tolerance_max_val))
-        if val >= max_val_V1 and val<= max_val_V2:
+        if val <= max_val_V1 and val>= max_val_V2:
             print("MIN : {}, MAX : {}, CURRENT_VAL : {}".format(max_val_V1, max_val_V2, val))
             present_check = False
         return present_check

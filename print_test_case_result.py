@@ -18,3 +18,7 @@ def print_tolerence_min(check_flag, check_type_message):
 def print_tolerence_max(check_flag, check_type_message):
     if not check_flag:
         print('Warning: Approaching {}'.format(check_type_message))
+
+def no_issue_check(check_flag):
+    if check_flag:
+        print("No Other Issue Observed")

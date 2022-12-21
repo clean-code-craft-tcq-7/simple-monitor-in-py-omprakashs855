@@ -36,4 +36,5 @@ def battery_is_ok(test_case):
         print_out_of_range_temp(bool(temp_result))
         print_out_of_range_soc(bool(soc_result))
         print_out_of_range_charge(bool(charge_rate_result))
+    no_issue_check(result)
     return result
